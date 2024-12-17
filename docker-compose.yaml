@@ -1,0 +1,32 @@
+services:
+  frigate:
+    container_name: frigate
+    restart: unless-stopped
+    shm_size: "2gb"
+    image: ghcr.io/blakeblackshear/frigate:0.15.0-beta3
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+      - /dev/dri:/dev/dri
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./frigate:/config
+      - ./media:/media
+      - type: tmpfs
+        target: /tmp/cache
+        tmpfs:
+          size: 500000000
+    secrets:
+      - FRIGATE_RTSP_USER
+      - FRIGATE_RTSP_PASSWORD
+    ports:
+      # - "5000:5000" # unsecured access, only use if you need to reset the password
+      - "8971:8971"
+      - "8554:8554"
+      - "8555:8555/tcp"
+      - "8555:8555/udp"
+secrets:
+  FRIGATE_RTSP_USER:
+    file: ./secrets/FRIGATE_RTSP_USER
+  FRIGATE_RTSP_PASSWORD:
+    file: ./secrets/FRIGATE_RTSP_PASSWORD
+
