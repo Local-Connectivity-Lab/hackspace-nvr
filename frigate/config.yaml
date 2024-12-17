@@ -24,42 +24,42 @@ cameras:
   outside-server-room:
     ffmpeg:
       inputs:
-        - path: 
+        - path:
             rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.9.3.100/:554/cam/realmonitor?channel=1&subtype=1
           roles:
             - detect
-        - path: 
+        - path:
             rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.9.3.100/:554/cam/realmonitor?channel=1&subtype=0
           roles:
             - record
   outside-kitchen:
     ffmpeg:
       inputs:
-        - path: 
+        - path:
             rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.9.3.101/:554/cam/realmonitor?channel=1&subtype=1
           roles:
             - detect
-        - path: 
+        - path:
             rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.9.3.101/:554/cam/realmonitor?channel=1&subtype=0
           roles:
             - record
-#  outside-scn-room:
-#    ffmpeg:
-#      inputs:
-#        - path: rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.9.3.102/:554/cam/realmonitor?channel=1&subtype=1
-#          roles:
-#            - detect
-#        - path: rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.9.3.102/:554/cam/realmonitor?channel=1&subtype=0
-#          roles:
-#            - record
-#  floodlight:
-#    ffmpeg:
-#      inputs:
-#        - path: rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.9.3.103/Preview_01_sub
-#          roles:
-#            - detect
-#        - path: rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.9.3.103/Preview_01_main
-#          roles:
-#            - record
+  outside-scn-room:
+    ffmpeg:
+      inputs:
+        - path: rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.9.3.102/:554/cam/realmonitor?channel=1&subtype=1
+          roles:
+            - detect
+        - path: rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.9.3.102/:554/cam/realmonitor?channel=1&subtype=0
+          roles:
+            - record
+  floodlight:
+    ffmpeg:
+      inputs:
+        - path: rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.9.3.103/Preview_01_sub
+          roles:
+            - detect
+        - path: rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.9.3.103/Preview_01_main
+          roles:
+            - record
 
 version: 0.15-0

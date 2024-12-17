@@ -19,4 +19,3 @@ for token in $(echo "$password" | ssss-split -n "$total" -t "$required" -w "$lab
 	encrypted_token_file="$keydir/${label}-${name}.split.gpg"
 	echo $token | gpg --encrypt --recipient "$name" --armor > "$encrypted_token_file"
 done
-

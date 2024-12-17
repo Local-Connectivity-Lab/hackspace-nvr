@@ -14,4 +14,3 @@ else
 	echo "The target file must match *.gpgtar"
 	exit 1
 fi
-

@@ -9,4 +9,3 @@ latest_counsel="$(basename $(ls -d keys/Counsel* | tail -n 1))"
 popd
 
 gpgtar --encrypt --recipient "$latest_counsel" --output "$outfile" "$original"
-

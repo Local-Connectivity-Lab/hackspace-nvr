@@ -10,7 +10,7 @@ for name in $@; do
 	done
 done
 
-if [[ $(ls -1 "$target"/*.split | wc -l) -ge "$count" ]] ; then 
+if [[ $(ls -1 "$target"/*.split | wc -l) -ge "$count" ]] ; then
 	cat "$target"/*.split | ssss-combine -q -t $count 2> "$target/password" \
 		&& ( echo "Wrote password to $target/password" ) \
 		|| ( echo "Failed to combine secrets!"; exit 1 )
@@ -20,4 +20,3 @@ else
 	ls -1 $target/*.split
 	exit 2
 fi
-
