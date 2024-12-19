@@ -2,6 +2,9 @@
 set -euo pipefail
 pushd $(dirname $(dirname $0)) > /dev/null
 
+# Fix Frigate file permissions
+docker exec frigate chmod -R a+wr /media
+
 # Delete preview files
 find media/frigate/clips/previews -type f -mmin +60 -delete
 
